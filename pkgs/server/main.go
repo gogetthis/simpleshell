@@ -29,6 +29,7 @@ func main() {
 
 	router.HandleFunc("/favicon.ico", doNothing) // to avoid calling the handler twice
 	router.HandleFunc("/", utils.HandleRoot)
+	router.HandleFunc("/checkUpdates", utils.HandleResponse)
 
 	server := &http.Server{
 		Addr:      *addrPtr,
