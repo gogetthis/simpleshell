@@ -29,5 +29,4 @@ bin/**
 
 # secret files
 secrets/**
-certs/**
 !**/.gitkeep
