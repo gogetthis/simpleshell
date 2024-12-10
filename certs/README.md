@@ -38,5 +38,8 @@ openssl x509 -req -in server.csr -CA ca.crt -CAkey ca.key \
   -CAcreateserial -out server.crt -days 365 -sha256 -extfile server.cnf -extensions v3_ext
 ```
 
-Now just keep the server.key and server.crt and throw the rest if you want to, throwing Certificate Authority certificate and key might comeback biting you later if you are deploying this to prod !!
+Now just keep the server.key and server.crt and throw the rest if you want to. 
+
+Throwing Certificate Authority certificate and key might comeback biting you later if you are deploying this to prod !!
+
 
