@@ -1,4 +1,4 @@
-# Introduction
+# README
 
 I have created the server certificates and key by following this blog, feel free to create your own !
 
